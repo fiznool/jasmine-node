@@ -239,7 +239,7 @@ Started #{@counts.testsStarted} tests, but only had #{@counts.testsFinished} com
             return
         @times.specDone[spec.id] = (+new Date) - @times.specStart[spec.id]
 
-        (@allSpecs[@currentSuite.id] ?= []).push spec
+        (@allSpecs[@currentSuite && @currentSuite.id] ?= []).push spec
         @counts.testsFinished++
         if @config.verbose
             msg = @makeVerbose spec
